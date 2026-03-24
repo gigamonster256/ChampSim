@@ -1,8 +1,8 @@
 {
   pkgs ? import <nixpkgs> { },
+  stdenv ? pkgs.stdenv,
 }:
-(pkgs.mkShell.override { stdenv = pkgs.clangStdenv; }) {
-  
+(pkgs.mkShell.override { inherit stdenv; }) {
   nativeBuildInputs = [
     pkgs.python3
     pkgs.vcpkg
